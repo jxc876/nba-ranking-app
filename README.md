@@ -22,6 +22,7 @@ The app then applies those weights consistently across eligible players.
 Debating the greatest NBA players is part of basketball culture. 
 
 Ask a fan for their top ten list and familiar questions quickly appear:
+
 - Who is number one: Michael Jordan or LeBron James?
 - Who ranks higher: Magic Johnson or Larry Bird?
 - How much do championships matter compared with individual awards?
@@ -54,12 +55,14 @@ This boundary roughly aligns with the introduction of the three-point line and t
 This limits the scope of the app and makes getting the data easier
 
 It also avoids some of the issues of comparing different eras
+
 - Ex: The NBA consisted of 8 teams from 1956 to 1961, 14 in 1969, etc
 - https://en.wikipedia.org/wiki/Expansion_of_the_NBA
 
 ## Accomplishments
 
 The initial ranking formula uses the following countable accomplishments:
+
 - NBA championship
 - NBA Most Valuable Player (MVP)
 - NBA Finals MVP
@@ -72,6 +75,7 @@ The initial ranking formula uses the following countable accomplishments:
 - NBA Rookie of the Year
 
 Later iterations might include the following:
+
 - Career Totals (Points, Rebounds, Assists, etc)
 - Career Averages (PPG, RPG, APG, etc)
 - All-Star selections (maybe, but mostly popularity based)
@@ -113,6 +117,7 @@ There are two main scenarios that users of the app can take.
 ## 1. View a Ranking
 
  Someone has shared a link with me, I can:
+
 - See the ranking's title, description, and ordered player list
 - See the formula and weights used to produce it
 - Inspect a player's score breakdown
@@ -123,6 +128,7 @@ There are two main scenarios that users of the app can take.
 ## 2. Create a Ranking
 
 I can create a new ranking
+
 - I can start with the default formula or copy an existing ranking
 - Change the weight assigned to each supported accomplishment
 - Apply the changes and see the ranking recalculate immediately
@@ -134,9 +140,11 @@ I can create a new ranking
 ## Data Model
 
 We can use a relation database — ex: Postgres
+
 - https://www.postgresql.org
 
 Players and accomplishment types should be modeled separately 
+
 - We should avoid using a column per achievement 
 - Adding a new accomplishment should not require a schema change
 
@@ -191,6 +199,7 @@ team
 
 
 A persisted ranking is conceptually a snapshot containing:
+
 - The important part is that a shared ranking retains the formula and dataset version used
 
 ```
@@ -237,9 +246,11 @@ Example for Jordan:
 One of the biggest questions is where should we source our data from.
 
 There are few high quality sources, see notes below
+
 - Basketball Reference & NBA API (with several wrappers)
 
 We can query an external API in realtime, however a better option is to ingest the data
+
 - The data rarely changes, we can store it in our own relational database (Postgres)
 - We don't want to be rate limited 
 - Or break if the external API changes
@@ -260,6 +271,7 @@ Automated ingestion is useful, but a small curated dataset is acceptable for the
 ## NBA API
 
 The official NBA API available at `stats.nba.com`
+
 - The HTML pages seem to load fine, I get timeouts when using  `requests` or `fetch` 
 - It's possible NBA.com allows calls from their own frontend, but blocks others...
 - https://www.nba.com/stats/players/traditional
@@ -269,9 +281,11 @@ The official NBA API available at `stats.nba.com`
 <img src="_img/nba-awards-screenshot.png" alt="nba-awards-screenshot" width="900">
 
 `nba_api` — A Python client for accessing NBA.com
+
 - https://github.com/swar/nba_api
 
 `nba-api` — A Python client for accessing NBA.com
+
 - https://nba-apidocumentation.knowledgeowl.com
 - https://nba-apidocumentation.knowledgeowl.com/help/playerawards
 
@@ -282,40 +296,51 @@ The following URLs from Basketball Reference contain data that can be parsed if 
 Some Basketball Reference awards pages combine NBA and ABA records. The app should ingest NBA records only; ABA accomplishments are outside the initial scope.
 
 (1) Championships (Count by Player)
+
 * https://www.basketball-reference.com/leaders/most_championships.html
 
 (2) MVP Award (by year)
+
 * https://www.basketball-reference.com/awards/mvp.html
 
 (3) Defensive Player (by year)
+
 * https://www.basketball-reference.com/awards/dpoy.html
 
 (4) All-NBA selections by player (1st, 2nd, 3rd team)
+
 * https://www.basketball-reference.com/awards/all_league_by_player.html
 
 (5) All-NBA selection by year
+
 * https://www.basketball-reference.com/awards/all_league.html
 
 (6) Rookie of the Year, All Rookie Teams
+
 * https://www.basketball-reference.com/awards/roy.html
 * https://www.basketball-reference.com/awards/all_rookie.html
 
 (7) All-Defensive selections by player
+
 * https://www.basketball-reference.com/awards/all_defense_by_player.html
 
 (8) All-Defensive teams by season
+
 * https://www.basketball-reference.com/awards/all_defense.html
 
 Finals Appearances (By Team)
+
 * https://www.basketball-reference.com/playoffs
 * https://www.basketball-reference.com/playoffs/series.html
 * https://www.basketball-reference.com/playoffs/2026-nba-finals-knicks-vs-spurs.html
 * Note: Player final appearance might need to be derived
 
 Awards Index
+
 * https://www.basketball-reference.com/awards
 
 NBA 75th Anniversary Team
+
 * https://www.basketball-reference.com/awards/nba_75th_anniversary.html
 
 
@@ -342,6 +367,7 @@ nba-rankings/
 ```
 
 **Milestone 2**
+
 - We need to ingest external data into our own database
 - The ingestion script can be a Node or Python script
 - The web app can use React + Node + Postgres (Drizzle ORM)
@@ -363,6 +389,7 @@ nba-rankings/
 ```
 
 Images — Let's keep it simple and include images inside the web app
+
 - We won't have enough images to need external storage (ex: S3 object storage)
 - We can start with a generic image for all players, ex: `default-player.png`
 - Then add more images, ex: `LebronJames.png`, `NikolaJokic` 
@@ -371,6 +398,7 @@ Images — Let's keep it simple and include images inside the web app
 - In either case we should host them and not rely on external resources
 
 Deferred Decisions — we can decide this later
+
 - Plain CSS vs Tailwind
 - UI/UX System, ex: Material
 - Component Library: Shadcn, Radix, etc
@@ -380,29 +408,34 @@ Deferred Decisions — we can decide this later
 ## Milestone 1) Fixed Ranking
 
 Goal: Validate the presentation & explainability of a weighted ranking
+
 - Use predetermined fixed weights 
 - Use a curated dataset of  ~30 notable players
 - Show the ranked list on page load
 - Show an individual player's score breakdown
 
 Technical Notes
+
 - Can be a React application or server side web app
 - The data can come from a hardcoded `data.json` file
 - No database, accounts, ingestion automation, or durable sharing
 
 Success
+
 - A reviewer can understand the formula and explain why one player ranks above another. 
 - Validate the sample data and default weights have no obvious errors 
 
 ## Milestone 2) Custom Weights
 
 Goal: Validate the interaction of creating a personal formula.
+
 - Show the current weight for every supported accomplishment
 - Allow weights to be increased, decreased, or set to zero
 - Recalculate and reorder the ranking after changes are applied
 - Keep the curated local dataset and client-only architecture
 
 Success 
+
 - A user can change the formula
 - See a predictable change in the rankings
 - Understand why the result changed
@@ -410,18 +443,21 @@ Success
 ## Milestone 3) Save & Share
 
 Goal: Allow Saving & Sharing Ranking
+
 - Store players, accomplishments, dataset versions, and saved rankings
 - Save configuration (weights, results) & metadata (title, description), immutable?
 - View and share using URLs, ex: `site.com/ranking/<UUID>`
 - Ability to fork a shared URL
 
 Technical Notes
+
 - Ingest and validate a broader modern-era dataset
 - Player images can be packaged and hosted with the web app. 
 
 # Screens
 
 The core page contains:
+
 - Navigation and a brief explanation of the ranking
 - The scoring formula
 - The ranked player list
@@ -429,6 +465,7 @@ The core page contains:
 - A footer with methodology and source links
 
 We likely need the following UI components
+
 - Navigation
 - Header
 - ScoringFormula
@@ -439,6 +476,7 @@ We likely need the following UI components
 ## Milestone 1 Screens
 
 Description 
+
 - The left side is the ranked player table
 - Clicking a player row selects that player
 - The selected row gets a highlight so it’s clear which player is active
@@ -466,11 +504,13 @@ Mobile
 
 
 Description
+
 - The user sees the current weights and then current ranking below
 - Accomplishments have a minus + plus button and display the current value
 - The user can Apply Weights after making edits
 
 Applying Weights
+
 - Tap `+` / `-` to change the value
 - Optionally support direct numeric input too, ex: `5`
 - Clicking "Apply Weights" recalculates scores & re-sorts the ranking
@@ -479,6 +519,7 @@ Applying Weights
 - When the weights have been edited, enable the Apply Weights button
 
 Desktop
+
 - On desktop/tablet, the user sees the current weights first
 - Then rankings are displayed in a table below the weights
 - The player detail view sits to the right of the table
@@ -486,6 +527,7 @@ Desktop
 <img src="_img/milestone-2-desktop.png" alt="milestone-2-desktop" width="800">
 
 Tablet
+
 - The player detail view stacks below the rankings
 - When a player is tapped
 	- Scroll smoothly to the detail card
@@ -503,6 +545,7 @@ Mobile
 ## Milestone 3 Screens
 
 Milestone 3 adds: 
+
 - A title and description
 - save/share action
 - stable ranking URL
@@ -527,18 +570,22 @@ Mobile
 ## Routes
 
 Milestone 1
+
 - `/` — home page, shows static page
 - `/about` — information about the project
 
 Milestone 3
+
 - `/rankings/<uuid>` — saved ranking, shareable URL
 
 Future Ideas
+
 - `/players/<slug>` — possible future player profile
 
 ## Domain Names
 
 Let's avoid using NBA in the name, some ideas:
+
 - `hoopsrank.com`
 - `hooprankings.com`
 - `ringstomvps.com`
