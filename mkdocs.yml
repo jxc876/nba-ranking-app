@@ -1,0 +1,6 @@
+site_name: NBA Ranking App
+docs_dir: .
+site_dir: site
+plugins:
+  - search
+  - same-dir
