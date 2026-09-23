@@ -282,46 +282,47 @@ The following URLs from Basketball Reference contain data that can be parsed if 
 Some Basketball Reference awards pages combine NBA and ABA records. The app should ingest NBA records only; ABA accomplishments are outside the initial scope.
 
 (1) Championships (Count by Player)
-https://www.basketball-reference.com/leaders/most_championships.html
+* https://www.basketball-reference.com/leaders/most_championships.html
 
 (2) MVP Award (by year)
-https://www.basketball-reference.com/awards/mvp.html
+* https://www.basketball-reference.com/awards/mvp.html
 
 (3) Defensive Player (by year)
-https://www.basketball-reference.com/awards/dpoy.html
+* https://www.basketball-reference.com/awards/dpoy.html
 
 (4) All-NBA selections by player (1st, 2nd, 3rd team)
-https://www.basketball-reference.com/awards/all_league_by_player.html
+* https://www.basketball-reference.com/awards/all_league_by_player.html
 
 (5) All-NBA selection by year
-https://www.basketball-reference.com/awards/all_league.html
+* https://www.basketball-reference.com/awards/all_league.html
 
 (6) Rookie of the Year, All Rookie Teams
-https://www.basketball-reference.com/awards/roy.html
-https://www.basketball-reference.com/awards/all_rookie.html
+* https://www.basketball-reference.com/awards/roy.html
+* https://www.basketball-reference.com/awards/all_rookie.html
 
 (7) All-Defensive selections by player
-https://www.basketball-reference.com/awards/all_defense_by_player.html
+* https://www.basketball-reference.com/awards/all_defense_by_player.html
 
 (8) All-Defensive teams by season
-https://www.basketball-reference.com/awards/all_defense.html
+* https://www.basketball-reference.com/awards/all_defense.html
 
 Finals Appearances (By Team)
-- https://www.basketball-reference.com/playoffs
-- https://www.basketball-reference.com/playoffs/series.html
-- https://www.basketball-reference.com/playoffs/2026-nba-finals-knicks-vs-spurs.html
-- Note: Player final appearance might need to be derived
+* https://www.basketball-reference.com/playoffs
+* https://www.basketball-reference.com/playoffs/series.html
+* https://www.basketball-reference.com/playoffs/2026-nba-finals-knicks-vs-spurs.html
+* Note: Player final appearance might need to be derived
 
 Awards Index
-https://www.basketball-reference.com/awards
+* https://www.basketball-reference.com/awards
 
 NBA 75th Anniversary Team
-- https://www.basketball-reference.com/awards/nba_75th_anniversary.html
+* https://www.basketball-reference.com/awards/nba_75th_anniversary.html
 
 
 ## Web Stack
 
 **Milestone 1**
+
 - Can be a simple React application with no backend
 - Data can come from a simple `.json` and be limited to ~30 players
 - The objective is to validate if the default ranking is fun or has any glaring problems 
