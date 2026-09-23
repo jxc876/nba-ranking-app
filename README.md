@@ -15,7 +15,7 @@ Instead of presenting a single "correct" ranking, the user can decide how much e
 
 The app then applies those weights consistently across eligible players.
 
-![milestone-2-desktop](_img/milestone-2-desktop.png)
+<img src="_img/milestone-2-desktop.png" alt="milestone-2-desktop" width="800">
 
 ## Background
 
@@ -266,7 +266,7 @@ The official NBA API available at `stats.nba.com`
 - https://www.nba.com/stats/player/203999/career — HTML page for Jokic
 - https://stats.nba.com/stats/playerawards?PlayerID=203999 — Call for Jokic, times out
 
-![nba-awards-screenshot](_img/nba-awards-screenshot.png)
+<img src="_img/nba-awards-screenshot.png" alt="nba-awards-screenshot" width="900">
 
 `nba_api` — A Python client for accessing NBA.com
 - https://github.com/swar/nba_api
@@ -451,15 +451,15 @@ Description
 
 Desktop
 
-![milestone-1-desktop](_img/milestone-1-desktop.png)
+<img src="_img/milestone-1-desktop.png" alt="milestone-1-desktop" width="600">
 
 Tablet
 
-![milestone-1-tablet](_img/milestone-1-tablet.png)
+<img src="_img/milestone-1-tablet.png" alt="milestone-1-tablet" width="400">
 
 Mobile
 
-![milestone-1-phone](_img/milestone-1-phone.png)
+<img src="_img/milestone-1-phone.png" alt="milestone-1-phone" width="300">
 
 
 ## Milestone 2 Screens
@@ -483,7 +483,7 @@ Desktop
 - Then rankings are displayed in a table below the weights
 - The player detail view sits to the right of the table
 
-![milestone-2-desktop](_img/milestone-2-desktop.png)
+<img src="_img/milestone-2-desktop.png" alt="milestone-2-desktop" width="800">
 
 Tablet
 - The player detail view stacks below the rankings
@@ -493,11 +493,11 @@ Tablet
 	- Otherwise the interaction might be hidden below the fold
 	- Preference for the expandable interaction
 
-![milestone-2-tablet](_img/milestone-2-tablet.png)
+<img src="_img/milestone-2-tablet.png" alt="milestone-2-tablet" width="400">
 
 Mobile
 
-![milestone-2-phone](_img/milestone-2-phone.png)
+<img src="_img/milestone-2-phone.png" alt="milestone-2-phone" width="300">
 
 
 ## Milestone 3 Screens
@@ -511,15 +511,15 @@ Milestone 3 adds:
 
 Desktop
 
-![milestone-3-desktop](_img/milestone-3-desktop.png)
+<img src="_img/milestone-3-desktop.png" alt="milestone-3-desktop" width="800">
 
 Tablet
 
-![milestone-3-tablet](_img/milestone-3-tablet.png)
+<img src="_img/milestone-3-tablet.png" alt="milestone-3-tablet" width="500">
 
 Mobile
 
-![milestone-3-phone](_img/milestone-3-phone.png)
+<img src="_img/milestone-3-phone.png" alt="milestone-3-phone" width="300">
 
 
 # Appendix
