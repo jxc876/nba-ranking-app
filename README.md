@@ -597,11 +597,10 @@ Let's avoid using NBA in the name, some ideas:
 
 ## Docs
 
-ChatGPT Session
-https://chatgpt.com/c/6aa5b0b5-a2b0-83ea-9e8c-992de03ba85b
-
 How to Write an Effective Software Design Document
-https://refactoringenglish.com/excerpts/write-an-effective-design-doc
+
+- https://refactoringenglish.com/excerpts/write-an-effective-design-doc
 
 The Basketball 100 (GOAT Points), John Hollinger
-https://www.nytimes.com/athletic/5940794/2024/11/26/the-basketball-100-goat-points-book-excerpt
+
+- https://www.nytimes.com/athletic/5940794/2024/11/26/the-basketball-100-goat-points-book-excerpt
